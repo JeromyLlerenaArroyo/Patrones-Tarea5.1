@@ -47,17 +47,17 @@ public class OrderControllerImpl implements OrderController {
         order.setCourier(bestCourier);
 
         List<IOrderItem> items = new ArrayList<>();
-        OrderItemInternet oi1 = new OrderItemInternet( "P01010034", 1, 400.90);
-        OrderItemInternet oi2 = new OrderItemInternet( "P01010025", 1, 600.90);
+        OrderItemInternet oi1 = new OrderItemInternet( "P01010034", 1, 100.00);
+        OrderItemInternet oi2 = new OrderItemInternet( "P01010025", 1, 200.00);
         items.add(oi1);
         items.add(oi2);
         order.setOrderItems(items);
 
-        DiscountFactory factoryDiscount = new DiscountFactory();
-        IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
+        //DiscountFactory factoryDiscount = new DiscountFactory();
+        //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_COUPON);
         //IDiscount discount = factoryDiscount.createDiscount(DiscountFactory.DISCOUNT_ANNIVERSARY);
-        //IDiscountFactory factoryDiscount = new CouponDiscountFactory();
-        //IDiscount discount = factoryDiscount.createDiscount();
+        IDiscountFactory factoryDiscount = new CouponDiscountFactory();
+        IDiscount discount = factoryDiscount.createDiscount();
 
         order.calculateTotalOrder(discount);
         orderRepository.create(order);

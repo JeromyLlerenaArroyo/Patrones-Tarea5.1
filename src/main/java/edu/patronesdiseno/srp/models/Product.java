@@ -1,6 +1,7 @@
 package edu.patronesdiseno.srp.models;
 
 import edu.patronesdiseno.srp.models.patterns.HighProductFactory;
+import edu.patronesdiseno.srp.models.patterns.LowProductFactory;
 
 public class Product {
     private String id;
@@ -8,14 +9,6 @@ public class Product {
     private Double basePrice;
     private String lineProduct;
     private String maintenance;
-
-    public Product()   {
-
-        HighProductFactory factoryProduct = new HighProductFactory();
-
-        this.lineProduct = factoryProduct.getLineProduct().getLine();
-        this.maintenance = factoryProduct.getMaintenance().getPeriod();
-    }
 
     public Product(String id)   {
         this.id = id;
@@ -61,5 +54,12 @@ public class Product {
         this.maintenance = maintenance;
     }
 
+    public Product()   {
 
+        //HighProductFactory factoryProduct = new HighProductFactory();
+        LowProductFactory  factoryProduct = new LowProductFactory();
+
+        this.lineProduct = factoryProduct.getLineProduct().getLine();
+        this.maintenance = factoryProduct.getMaintenance().getPeriod();
+    }
 }

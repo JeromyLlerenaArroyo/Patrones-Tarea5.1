@@ -4,6 +4,8 @@ import edu.patronesdiseno.srp.models.HighEndLineProduct;
 import edu.patronesdiseno.srp.models.LineProduct;
 import edu.patronesdiseno.srp.models.Maintenance;
 import edu.patronesdiseno.srp.models.PremiumMaintenance;
+import edu.patronesdiseno.srp.models.ConditionProduct;
+import edu.patronesdiseno.srp.models.GoodCondition;
 
 public class HighProductFactory implements IProductFactory {
 
@@ -19,5 +21,8 @@ public class HighProductFactory implements IProductFactory {
         return new PremiumMaintenance();
     }
 
-    
+    @Override
+    public ConditionProduct getConditionProduct() {
+        return new GoodCondition();
+    }
 }

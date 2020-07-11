@@ -4,6 +4,8 @@ import edu.patronesdiseno.srp.models.LineProduct;
 import edu.patronesdiseno.srp.models.LowRangeLineProduct;
 import edu.patronesdiseno.srp.models.Maintenance;
 import edu.patronesdiseno.srp.models.StandardMaintenance;
+import edu.patronesdiseno.srp.models.BadCondition;
+import edu.patronesdiseno.srp.models.ConditionProduct;
 
 public class LowProductFactory implements IProductFactory {
 
@@ -19,4 +21,8 @@ public class LowProductFactory implements IProductFactory {
         return new StandardMaintenance();
     }
     
+    @Override
+    public ConditionProduct getConditionProduct() {
+        return new BadCondition();
+    }
 }

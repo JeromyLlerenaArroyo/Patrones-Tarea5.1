@@ -8,7 +8,7 @@ public class CouponDiscountFactory implements IDiscountFactory {
     @Override
     public IDiscount createDiscount() {
         
-        return new CouponDiscount();
+        return CouponDiscount.getInstance();
     }
 
 

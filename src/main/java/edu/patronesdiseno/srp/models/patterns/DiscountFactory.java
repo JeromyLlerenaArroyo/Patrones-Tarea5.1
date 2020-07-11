@@ -13,11 +13,11 @@ public class DiscountFactory {
 
         if (typeDiscount.equals(DISCOUNT_COUPON))  {
 
-            return new CouponDiscount();
+            return CouponDiscount.getInstance(); // Singleton
         }
         if (typeDiscount.equals(DISCOUNT_ANNIVERSARY))  {
 
-            return new AnniversaryDiscount();
+            return AnniversaryDiscount.getInstance(); // Singleton
         }        
         else {
 
